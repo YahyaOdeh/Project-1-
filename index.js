@@ -127,17 +127,14 @@ function validateAnswer(question, userAnswer) {
     // compare question answer with user answer 
     console.log('user answer is : ', userAnswer)
 
+    if(typeof question.answer === "boolean"){
 
-    if((question.answer).toString() === ('true' || 'false')){
-
-        if(userAnswer === question.answer) {
+        if( userAnswer === question.answer) {
 
             console.log('the answer is YES')
 
             return true
         }
-        
-        
         
         else {
 
@@ -152,7 +149,7 @@ function validateAnswer(question, userAnswer) {
 
     else {
 
-        console.log(question.options[userAnswer])        
+    console.log('the answer is : ', question.options[userAnswer])        
 
     return question.options[userAnswer] 
 
@@ -188,14 +185,14 @@ function play(url, answer) {
 
 
 // testing by passing other, no query, un relevant query 
-//play('darb.com/question?type=other&f=d', true) // { q: 'q1', answer: true }
-//play('darb.com/question', true) // { q: 'q2', answer: false }
-//play('darb.com/question?key=value', true) // { q: 'q3', answer: true }
-//play('darb.com/question?type=s', true) // // { q: 'q1', answer: true }
+play('darb.com/question?type=other&f=d', true) // { q: 'q1', answer: true }
+play('darb.com/question', true) // { q: 'q2', answer: false }
+play('darb.com/question?key=value', true) // { q: 'q3', answer: true }
+play('darb.com/question?type=s', true) // // { q: 'q1', answer: true }
 
 // testing selecting question from sports category
-//play('darb.com/question?type=sports', true) 
+play('darb.com/question?type=sports', true) 
 play('darb.com/question?type=sports', 1) 
-play('darb.com/question?type=sports', 5) 
+play('darb.com/question?type=sports', 2) 
 
 // 1 mean : selecting the second 
